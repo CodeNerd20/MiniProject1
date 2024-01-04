@@ -12,10 +12,9 @@ public class CarController : MonoBehaviour
     public float horizontalInput;
     public float forwardInput;
 
-    public GameObject bullet;
-    public Rigidbody bulletRb;
-    public float spawnRate;
-    public float bulletSpeed;
+    public GameObject bulletPrefab;
+    public GameObject bulletSpawn;
+    public GameObject bulletSpawn1;
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +31,12 @@ public class CarController : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * horizontalInput);
 
+        
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(bullet, transform.position, bullet.transform.rotation);
-            bulletRb.AddForce(Vector3.forward * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
+            Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+            Instantiate(bulletPrefab, bulletSpawn1.transform.position, bulletSpawn1.transform.rotation);
         }
     }
 }
