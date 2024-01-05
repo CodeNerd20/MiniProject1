@@ -33,7 +33,7 @@ public class CarController : MonoBehaviour
 
         
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
             Instantiate(bulletPrefab, bulletSpawn1.transform.position, bulletSpawn1.transform.rotation);
